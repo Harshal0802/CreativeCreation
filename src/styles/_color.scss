@@ -1,0 +1,18 @@
+.color_container {
+  width: 150px;
+
+  .color_palette {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+
+    .color {
+      width: 18px;
+      height: 18px;
+      border: 1px solid black;
+      border-radius: 100%;
+      cursor: pointer;
+    }
+  }
+}

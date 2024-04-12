@@ -1,0 +1,36 @@
+@import "./fonts";
+
+@import "./navbar";
+
+@import "./creative";
+
+@import "./button";
+
+@import "./drawer";
+
+@import "./input";
+
+@import "./color";
+
+@import "./dashboard";
+
+.App {
+  height: 100vh;
+  border: 5px solid black;
+  border-radius: 5px;
+
+  .container {
+    display: flex;
+    margin: 0px 100px;
+
+    .dashboard {
+      width: 65%;
+      padding: 35px 20px;
+    }
+
+    .drawer {
+      width: 35%;
+      padding: 35px 25px;
+    }
+  }
+}
