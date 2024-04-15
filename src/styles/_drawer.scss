@@ -3,6 +3,21 @@
   .drawer_heading {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    .close_button {
+      border: none;
+      background: transparent;
+      text-align: center;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+
+      .icon {
+        height: 20px;
+        width: 20px;
+      }
+    }
   }
 
   .drawer_input_container{

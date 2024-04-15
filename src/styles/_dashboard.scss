@@ -1,9 +1,32 @@
-.dashboard_container{
-    .filter_container{
-        display: flex;
-        margin: 40px 0px;
+.dashboard_container {
+  .filter_container {
+    display: flex;
+    margin: 40px 0px;
+
+    .dashboard_color_container {
+      margin-right: 45px;
     }
-    .dashboard_color_container{
-        margin-right: 45px;
+  }
+  
+  .creative_limit {
+    display: flex;
+    width: 100%;
+    margin-bottom: 30px;
+    align-items: center;
+
+    .creative_limit_container {
+      width: 100%;
+      height: 20px;
+      background-color: "#ffffff";
+      border: 1px solid black;
+      border-radius: 20px;
+
+      .fill_container {
+        height: 100%;
+        width: 50%;
+        border-radius: inherit;
+        background-color: #000000;
+      }
     }
+  }
 }

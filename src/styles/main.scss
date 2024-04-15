@@ -25,12 +25,16 @@
 
     .dashboard {
       width: 65%;
+      height: calc(100vh - 65px);
       padding: 35px 20px;
     }
 
     .drawer {
       width: 35%;
-      padding: 35px 25px;
+      height: calc(100vh - 65px);
+      padding: 35px 0px 35px 25px;
+      display: none;
+      border-left: 5px solid black;
     }
   }
 }
