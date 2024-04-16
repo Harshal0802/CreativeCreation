@@ -16,14 +16,6 @@ const creativeSlice = createSlice({
     addCreatives: (state, action) => {
       state.creatives.push(action.payload);
     },
-    filterCreatives: (state, action) => {
-      return state.creatives?.filter(
-        (item) =>
-          item.title === action.payload.title ||
-          (item.subTitle === action.payload.subTitle &&
-            item.color === action.payload.color)
-      );
-    },
   },
 });
 

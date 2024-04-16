@@ -2,19 +2,15 @@ import Button from "./Button";
 import Color from "./Color";
 import Creative from "./Creative";
 import Input from "./Input";
-import { useState, useEffect } from "react";
-import { openDrawer, filterCreatives} from "../store/slice";
-import { useSelector, useDispatch } from "react-redux";
+import { useState} from "react";
+import { openDrawer} from "../store/slice";
+import { useSelector } from "react-redux";
 
 const Dashboard = ({ drawer }) => {
-  const dispatch = useDispatch();
   const items = useSelector((state) => state.creative);
   const [titleOrSubTitle, setTitleOrSubTitle] = useState("");
   const [color, setColor] = useState("");
-
-  useEffect(() => {
-    dispatch(filterCreatives({ titleOrSubTitle, color }));
-  }, [titleOrSubTitle, color, dispatch]);
+  
   return (
     <div className="dashboard_container">
       <h3>Filter By:</h3>
@@ -41,17 +37,25 @@ const Dashboard = ({ drawer }) => {
         btnState={drawer}
       />
       <div className="creative_container">
-        {items.creatives?.length > 0
-          ? items.creatives.map((item, index) => {
-              return (
-                <Creative
-                  key={index}
-                  title={item.title}
-                  subtitle={item.subTitle}
-                  bgColor={item.color}
-                />
-              );
-            })
+        {items?.creatives?.length !== 0
+          ? items.creatives
+              .filter((item) => {
+                return (
+                  (item.color.includes(color) &&
+                    item.title.includes(titleOrSubTitle) ||
+                  item.subTitle.includes(titleOrSubTitle))
+                );
+              })
+              .map((item, index) => {
+                return (
+                  <Creative
+                    key={index}
+                    title={item.title}
+                    subtitle={item.subTitle}
+                    bgColor={item.color}
+                  />
+                );
+              })
           : null}
         {/* <Creative title="This is a title!" subtitle="This is a subtitle!" />
         <Creative title="This is a title!" subtitle="This is a subtitle!" />

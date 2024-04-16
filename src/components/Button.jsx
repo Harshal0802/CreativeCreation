@@ -9,7 +9,6 @@ const Button = ({
   clearInputs,
 }) => {
   const dispatch = useDispatch();
-  // console.log(data);
   return (
     <button
       disabled={btnState}
@@ -17,10 +16,10 @@ const Button = ({
       className="button"
       onClick={() => {
         dispatch(handlerDrawer());
-        if (data.title != "" && data.subtitle != "" && data.color != "") {
-          dispatch(addCreatives(data));
+        if (data?.title != "" && data?.subtitle != "" && data?.color != "") {
+          addCreatives && dispatch(addCreatives(data));
         }
-        clearInputs();
+        clearInputs && clearInputs();
       }}
     >
       <h4>{btnName}</h4>
