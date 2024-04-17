@@ -1,16 +1,23 @@
+@import "./breakpoints";
+
 .input_container {
   .input_text_header {
-    margin: 4px 0px;
+    margin: 8px 0px;
+    font-size: 1.2rem;
   }
 
   .input_text_container {
-    width: 200px;
+    width: 20rem;
+
+    @include xl {
+      width: 15rem;
+    }
 
     .input_text {
       outline: none;
       border-radius: 3px;
-      padding: 2px 5px;
-      font-size: 10px;
+      padding: 8px;
+      font-size: 15px;
       width: 100%;
     }
   }

@@ -1,19 +1,35 @@
+@import "./breakpoints";
+
 .dashboard_container {
+  .dashboard_heading_text {
+    font-size: 2rem;
+  }
+
   .filter_container {
     display: flex;
     margin: 40px 0px;
 
+    @include xl {
+      gap: 20px;
+      flex-direction: column;
+    }
+
     .dashboard_color_container {
-      margin-right: 45px;
+      margin-right: 6rem;
     }
   }
-  
+
   .creative_limit {
     display: flex;
-    width: 80%;
+    width: 70%;
+    margin-top: 60px;
     margin-bottom: 30px;
     align-items: center;
     gap: 20px;
+
+    .limit_text {
+      width: 150px;
+    }
 
     .creative_limit_container {
       width: 100%;

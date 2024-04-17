@@ -1,9 +1,17 @@
 .drawer_container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
 
   .drawer_heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .drawer_heading_text {
+      font-size: 2rem;
+    }
 
     .close_button {
       border: none;
@@ -20,15 +28,20 @@
     }
   }
 
-  .drawer_input_container{
+  .drawer_input_container {
     margin-top: 40px;
   }
 
-  .drawer_color_container{
+  .drawer_color_container {
     margin-top: 40px;
   }
 
-  .done_button{
-    margin-top: 300px;
+  .error {
+    padding: 20px 0px;
+    color: #ff0000;
+  }
+
+  .done_button {
+    justify-content: flex-end;
   }
 }

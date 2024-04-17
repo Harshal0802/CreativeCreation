@@ -24,36 +24,46 @@ const Drawer = () => {
     setColor("");
   };
 
+  const drawerCondition = () => {
+    if (title == "" || subTitle == "" || color == "") {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   return (
     <div className="drawer_container">
-      <div className="drawer_heading">
-        <h3>Creative Creation</h3>
+      <div className="drawer_container_first">
+        <div className="drawer_heading">
+          <h3 className="drawer_heading_text">Creative Creation</h3>
 
-        <button
-          className="close_button"
-          onClick={() => dispatch(closeDrawer())}
-        >
-          <IoMdClose className="icon" />
-        </button>
-      </div>
-      <div className="drawer_input_container">
-        <Input
-          title="title"
-          placeholder="Enter text"
-          value={title}
-          onChange={setTitle}
-        />
-      </div>
-      <div className="drawer_input_container">
-        <Input
-          title="subtitle"
-          placeholder="Enter text"
-          value={subTitle}
-          onChange={setSubTitle}
-        />
-      </div>
-      <div className="drawer_color_container">
-        <Color title="background color" value={color} onClick={setColor} />
+          <button
+            className="close_button"
+            onClick={() => dispatch(closeDrawer())}
+          >
+            <IoMdClose className="icon" />
+          </button>
+        </div>
+        <div className="drawer_input_container">
+          <Input
+            title="title"
+            placeholder="Enter text"
+            value={title}
+            onChange={setTitle}
+          />
+        </div>
+        <div className="drawer_input_container">
+          <Input
+            title="subtitle"
+            placeholder="Enter text"
+            value={subTitle}
+            onChange={setSubTitle}
+          />
+        </div>
+        <div className="drawer_color_container">
+          <Color title="background color" value={color} onClick={setColor} />
+        </div>
       </div>
       <div className="done_button">
         <Button
@@ -62,6 +72,7 @@ const Drawer = () => {
           data={creativeData}
           addCreatives={addCreatives}
           clearInputs={addCreativeCreations}
+          btnState={drawerCondition()}
         />
       </div>
     </div>

@@ -2,18 +2,23 @@ import Button from "./Button";
 import Color from "./Color";
 import Creative from "./Creative";
 import Input from "./Input";
-import { useState } from "react";
-import { openDrawer } from "../store/slice";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { openDrawer, getColors } from "../store/slice";
+import { useSelector, useDispatch } from "react-redux";
 
 const Dashboard = ({ drawer }) => {
+  const dispatch = useDispatch();
   const items = useSelector((state) => state.creative);
   const [titleOrSubTitle, setTitleOrSubTitle] = useState("");
   const [color, setColor] = useState("");
 
+  useEffect(() => {
+    dispatch(getColors());
+  }, [dispatch]);
+
   return (
     <div className="dashboard_container">
-      <h3>Filter By:</h3>
+      <h3 className="dashboard_heading_text">Filter By:</h3>
       <section className="filter_container">
         <div className="dashboard_color_container">
           <Color title="color" value={color} onClick={setColor} />
@@ -31,9 +36,8 @@ const Dashboard = ({ drawer }) => {
             className="fill_container"
             style={{ width: `${(items.creatives?.length / 5) * 100}%` }}
           ></div>
-          al
         </div>
-        <h4>{items.creatives?.length} / 5 Creatives</h4>
+        <h4 className="limit_text">{items.creatives?.length} / 5 Creatives</h4>
       </section>
       <Button
         btnName="+ Add Creative"
@@ -45,9 +49,13 @@ const Dashboard = ({ drawer }) => {
           ? items.creatives
               .filter((item) => {
                 return (
-                  (item.color.includes(color) &&
-                    item.title.includes(titleOrSubTitle)) ||
-                  item.subTitle.includes(titleOrSubTitle)
+                  item.title
+                    .toLowerCase()
+                    .includes(titleOrSubTitle?.toLowerCase()) ||
+                  item.subTitle
+                    .toLowerCase()
+                    .includes(titleOrSubTitle.toLowerCase()) ||
+                  item.color.includes(color)
                 );
               })
               .map((item, index) => {
@@ -61,11 +69,6 @@ const Dashboard = ({ drawer }) => {
                 );
               })
           : null}
-        {/* <Creative title="This is a title!" subtitle="This is a subtitle!" />
-        <Creative title="This is a title!" subtitle="This is a subtitle!" />
-        <Creative title="This is a title!" subtitle="This is a subtitle!" />
-        <Creative title="This is a title!" subtitle="This is a subtitle!" />
-        <Creative title="This is a title!" subtitle="This is a subtitle!" /> */}
       </div>
     </div>
   );

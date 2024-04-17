@@ -1,5 +1,4 @@
 const Input = ({ title, placeholder, value, onChange }) => {
-  // console.log(title, value);
   return (
     <div className="input_container">
       <h4 className="input_text_header">{title}</h4>

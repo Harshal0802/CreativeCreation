@@ -12,7 +12,10 @@ function App() {
     <div className="App">
       <Navbar />
       <main className="container">
-        <section className="dashboard">
+        <section
+          className="dashboard"
+          style={{ overflowY: drawer.creatives.length > 1 ? "scroll" : "" }}
+        >
           <Dashboard drawer={drawer.toggleDrawer} />
         </section>
         <section
