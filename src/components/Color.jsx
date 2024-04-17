@@ -1,8 +1,6 @@
-import React from "react";
 import { colors } from "../config";
 
 const Color = ({ title, value, onClick }) => {
-  // console.log(title, value);
   return (
     <div className="color_container">
       <h4 className="color_heading">{title}</h4>

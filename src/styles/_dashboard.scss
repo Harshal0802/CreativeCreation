@@ -10,9 +10,10 @@
   
   .creative_limit {
     display: flex;
-    width: 100%;
+    width: 80%;
     margin-bottom: 30px;
     align-items: center;
+    gap: 20px;
 
     .creative_limit_container {
       width: 100%;
@@ -23,7 +24,6 @@
 
       .fill_container {
         height: 100%;
-        width: 50%;
         border-radius: inherit;
         background-color: #000000;
       }

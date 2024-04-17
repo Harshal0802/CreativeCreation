@@ -27,6 +27,26 @@
       width: 65%;
       height: calc(100vh - 65px);
       padding: 35px 20px;
+      overflow-y: scroll;
+      margin-right: 5px;
+
+      &::-webkit-scrollbar {
+        width: 0.5rem;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: #ffffff;
+        border: 1px solid black;
+        margin: 15px 0px;
+        border-radius: 10px;;
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        background: #000000;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        background-clip: content-box;
+      }
     }
 
     .drawer {
